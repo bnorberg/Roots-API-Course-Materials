@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>	
+	<body>
+		<div id="api-data"></div>
+		<script type="text/javascript">
+			var settings = {
+			  "async": true,
+			  "crossDomain": true,
+			  //"dataType": "jsonp", //for cors error fix
+			  "url": "http://open.mapquestapi.com/nominatim/v1/search.php?key=Gz3RxsRfRFG594lQE1WB7J6MsVl5MM6X&q=chicago&format=json&limit=10&addressdetails=1",
+			  "method": "GET",
+			  "headers": {
+			    "cache-control": "no-cache",
+			    "Postman-Token": "59cac209-5c38-43f2-8d0c-6d2dbd54bd43"
+			  }
+			}
+			$.ajax(settings).done(function (response) {
+	  			console.log(response); //print to JavaScript console
+	  			$( "#api-data" ).append(JSON.stringify(response)); //print api call results to div id=api-data
+			});
+		</script>	
+	</body>
+</html>	

@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<style>
+			#mapid { height: 480px; }
+		</style>
+	</head>
+	<body>
+		<div id="api-data"></div>
+		<script type="text/javascript">
+			var settings = {
+			  "async": true,
+			  "crossDomain": true,
+			  "url": "https://nominatim.openstreetmap.org/search?format=json&q=chicago,il&addressdetails=1&limit=10",
+			  "method": "GET",
+			  "headers": {
+			    "cache-control": "no-cache",
+			    "Postman-Token": "7474c3f1-438f-43e8-847c-54f1daba7c42"
+			  }
+			}
+
+		$.ajax(settings).done(function (response) {
+		  console.log(response);
+		  $( "#api-data" ).append(JSON.stringify(response[3].lat));
+		});
+		</script>
+	</body>
+</html>	
